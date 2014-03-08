@@ -28,7 +28,7 @@
   </head>
 
   <body>
-
+      <script type="text/x-handlebars" data-template-name="appointment">
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -53,13 +53,15 @@
             <div class="form-group">
               <label for="inputDate" class="col-sm-2 control-label">Date</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputDate" placeholder="Select Date">
+              {{input type="text" class="form-control" id="inputDate" placeholder="Select Date" value="newDate" action="createSchedule"}}
+     
               </div>
             </div>
             <div class="form-group">
               <label for="inputTime" class="col-sm-2 control-label">Time</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputTime" placeholder="Select Time">
+                {{input type="text" class="form-control" id="inputTime" placeholder="Select Time" value="newTime" action="createSchedule"}}
+     
               </div>
             </div>
             <div class="form-group">
@@ -72,19 +74,30 @@
           </div>
           <h2 class="sub-header">Your Schedule</h2>
           <div class="table-responsive">
-
+            
                   <ul>
-                      <li>Date: 1/1/14 - Time: 00:00PM</li>
+                  {{#each}}
+                      <li>Date: {{date}}  Time: {{time}}</li>
+                      {{/each}}
                   </ul>
+                  
           </div>
         </div>
       </div>
     </div>
-
+      </script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/libs/jquery-1.10.2.min.js"></script>
+    <script src="js/libs/handlebars-1.0.0.js"></script>
+    <script src="js/libs/ember.js"></script>
+    <script src="js/libs/ember-data.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/models/schedule.js"></script>
+    <script src="js/controllers/schedules_controller.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="../../assets/js/docs.min.js"></script>
   </body>

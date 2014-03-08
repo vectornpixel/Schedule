@@ -4,6 +4,11 @@ Appointment.Schedule = DS.Model.extend({
     
 });
 
+Appointment.Person = DS.Model.extend({
+   firstname: DS.attr('string'),
+   lastname: DS.attr('string')
+});
+
 Appointment.Schedule.FIXTURES = [
     {
         id: 1,
